@@ -1,33 +1,87 @@
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Dependencies
+node_modules/
 
-# testing
-/coverage
+# Expo (if using)
+.expo/
+.expo-shared/
 
-# next.js
-/.next/
-/out/
+# React Native
+android/.gradle/
+android/app/build/
+android/build/
+ios/build/
 
-# production
-/build
+# Local env files
+.env
+.env.local
+.env.*.local
 
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+*.log
 
-# local env files
-.env*.local
+# OS
+.DS_Store
 
-# vercel
-.vercel
+# IDE
+.vscode/
+.idea/
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Metro / cache
+.metro-cache/
+*.tmp
+*.temp
+
+# Coverage
+coverage/
+
+# Bundles
+*.bundle
+
+# Fastlane (if used)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# Keystore / Signing files (IMPORTANT)
+*.keystore
+*.jks
+android/key.properties
+
+# CocoaPods
+ios/Pods/
+ios/Podfile.lock
+
+# Build outputs
+dist/
+build/
+
+# Optional
+*.pem
+
+# Next.js
+.next/
+out/
+.vercel/
+
+# Node
+node_modules/
+
+# Environment
+.env*
+
+# OS
+.DS_Store
+
+# Large original files (keep optimized versions only)
+*.HEIC
+*.heic
+IMG_*.HEIC
+IMG_*.heic
+
+# Optional
+*.pem
