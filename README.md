@@ -158,7 +158,6 @@ This project is private and proprietary.
 
 For any issues or questions, contact:
 - Email: codewithatif@gmail.com
-- WhatsApp: +91 88500 03494
 
 ---
 
