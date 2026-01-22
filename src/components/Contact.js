@@ -56,19 +56,19 @@ export default function Contact() {
         {
             icon: <FaGithub />,
             name: 'GitHub',
-            url: 'https://github.com/',
+            url: 'https://github.com/Atif007cr7',
             color: 'hover:text-gray-400',
         },
         {
             icon: <FaLinkedin />,
             name: 'LinkedIn',
-            url: 'https://linkedin.com/',
+            url: 'https://www.linkedin.com/in/mohd-ansari-atif-56512a20b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
             color: 'hover:text-blue-400',
         },
         {
             icon: <FaInstagram />,
             name: 'Instagram',
-            url: 'https://instagram.com/',
+            url: 'https://www.instagram.com/ansari_mohd_atif?igsh=MWgwcjJ5MzM1NXpubg%3D%3D&utm_source=qr',
             color: 'hover:text-pink-400',
         },
         {

@@ -27,6 +27,8 @@ export default function RootLayout({ children }) {
             </head>
             <body>
                 <ThemeProvider>
+                    <div className="stars"></div>
+                    <div className="fixed top-0 left-0 right-0 h-[500px] bg-primary/20 blur-[120px] rounded-[100%] pointer-events-none transform -translate-y-1/2 z-[-1]"></div>
                     {children}
                 </ThemeProvider>
             </body>

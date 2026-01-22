@@ -1,7 +1,8 @@
 'use client'
 
-import { FaDownload, FaRocket, FaCode, FaUsers } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import { FaRocket, FaCode, FaLaptopCode } from 'react-icons/fa'
+import { SiFlutter, SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs, SiFirebase, SiPython, SiDart, SiDocker } from 'react-icons/si'
 
 export default function Hero() {
     const scrollToSection = (href) => {
@@ -11,126 +12,106 @@ export default function Hero() {
         }
     }
 
-    const highlights = [
-        { icon: <FaCode />, text: 'Flutter Apps Delivered' },
-        { icon: <FaRocket />, text: 'Backend + APIs' },
-        { icon: <FaUsers />, text: 'Team + Agile Delivery' },
+    const orbitingIcons = [
+        { Icon: SiFlutter, color: '#02569B', delay: '0s' },
+        { Icon: SiReact, color: '#61DAFB', delay: '2s' },
+        { Icon: SiNextdotjs, color: '#FFFFFF', delay: '4s' },
+        { Icon: SiPython, color: '#3776AB', delay: '6s' },
+        { Icon: SiFirebase, color: '#FFCA28', delay: '8s' },
+        { Icon: SiDart, color: '#0175C2', delay: '10s' },
     ]
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center section-padding pt-32">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left Content */}
+        <section id="home" className="relative flex flex-col h-screen w-full overflow-hidden">
+            {/* Background Effects */}
+            <div className="absolute top-[-250px] left-1/2 transform -translate-x-1/2 w-[800px] h-[500px] bg-primary/30 rounded-full blur-[120px] -z-10"></div>
+
+            <div className="flex flex-col lg:flex-row items-center justify-center px-4 md:px-20 mt-20 md:mt-40 w-full z-[20]">
+                {/* Left Content */}
+                <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start lg:w-1/2">
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
+                        initial={{ opacity: 0, y: -50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="py-[8px] px-[10px] border border-[#7042f88b] opacity-[0.9] rounded-full w-fit bg-[#0300145e]"
                     >
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-6 leading-tight">
-                            I build <span className="gradient-text">scalable mobile apps</span> & backend systems that grow your business
+                        <h1 className="text-[#b49bff] text-[13px] flex items-center gap-2">
+                            <FaCode className="text-secondary" />
+                            Full Stack Developer Portfolio
                         </h1>
-                        <p className="text-base md:text-lg text-gray-400 mb-8">
-                            Flutter + Backend (Laravel / FastAPI / Django)
-                        </p>
-
-                        {/* CTA Buttons */}
-                        <div className="flex flex-wrap gap-4 mb-12">
-                            <button
-                                onClick={() => scrollToSection('#contact')}
-                                className="btn-primary"
-                            >
-                                <FaRocket className="inline mr-2" />
-                                Get Quote
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('#projects')}
-                                className="btn-secondary"
-                            >
-                                View Projects
-                            </button>
-                            <a
-                                href="/resume.pdf"
-                                download
-                                className="btn-secondary flex items-center"
-                            >
-                                <FaDownload className="mr-2" />
-                                Download Resume
-                            </a>
-                        </div>
-
-                        {/* Trust Badges */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <div className="text-center">
-                                <div className="text-3xl font-bold gradient-text">3+</div>
-                                <div className="text-sm text-gray-400">Years Experience</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-3xl font-bold gradient-text">5+</div>
-                                <div className="text-sm text-gray-400">Apps Deployed</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-3xl font-bold gradient-text">Agile</div>
-                                <div className="text-sm text-gray-400">CI/CD Ready</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-3xl font-bold gradient-text">Team</div>
-                                <div className="text-sm text-gray-400">Support</div>
-                            </div>
-                        </div>
                     </motion.div>
 
-                    {/* Right Content - Profile Card */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="flex justify-center"
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                        className="flex flex-col gap-6 mt-6 text-4xl md:text-6xl font-bold text-white max-w-[600px] w-auto h-auto leading-tight"
                     >
-                        <div className="gradient-border max-w-md w-full">
-                            <div className="gradient-border-content text-center">
-                                {/* Profile Photo */}
-                                <div className="mb-6 flex justify-center">
-                                    <div className="w-48 h-48 rounded-full bg-gradient-to-br from-maroon to-maroon-dark p-1">
-                                        <img
-                                            src="/profile.png"
-                                            alt="Ansari Mohd Atif"
-                                            className="w-full h-full rounded-full object-cover"
-                                        />
-                                    </div>
-                                </div>
+                        <span>
+                            Providing
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500"> the best </span>
+                            project experience
+                        </span>
+                    </motion.div>
 
-                                {/* Profile Info */}
-                                <h2 className="text-3xl font-bold mb-2">Ansari Mohd Atif</h2>
-                                <p className="text-xl text-primary-400 mb-2">
-                                    Full Stack Developer | Flutter Specialist
-                                </p>
-                                <p className="text-gray-400 mb-4">3+ Years Experience</p>
-                                <p className="text-gray-400 mb-6">
-                                    📍 Mumbai, India | Available for Remote + On-site
-                                </p>
+                    <motion.p
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: 0.5 }}
+                        className="text-lg text-gray-400 my-5 max-w-[600px]"
+                    >
+                        I&apos;m a Full Stack Software Engineer with expertise in Flutter, Website, and Backend development. Check out my projects and skills below.
+                    </motion.p>
 
-                                {/* Highlights */}
-                                <div className="space-y-3">
-                                    {highlights.map((item, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex items-center justify-center gap-3 text-gray-300"
-                                        >
-                                            <span className="text-primary-400 text-xl">{item.icon}</span>
-                                            <span>{item.text}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
+                    <motion.div
+                        initial={{ x: -100, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: 0.8 }}
+                        className="flex gap-4"
+                    >
+                        <button
+                            onClick={() => scrollToSection('#projects')}
+                            className="btn-primary cursor-pointer max-w-[200px] z-50 pointer-events-auto"
+                        >
+                            Learn More!
+                        </button>
                     </motion.div>
                 </div>
-            </div>
 
-            {/* Floating Elements */}
-            <div className="absolute top-20 left-10 w-20 h-20 bg-maroon rounded-full opacity-20 blur-3xl animate-float"></div>
-            <div className="absolute bottom-20 right-10 w-32 h-32 bg-maroon-light rounded-full opacity-20 blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+                {/* Right Content - Orbit Effects */}
+                <div className="w-full lg:w-1/2 h-full flex justify-center items-center mt-20 lg:mt-0 relative">
+                    <div className="relative w-[400px] h-[400px] flex items-center justify-center">
+                        {/* Center Icon */}
+                        <div className="absolute w-24 h-24 bg-[#030014] rounded-full border border-primary/50 flex items-center justify-center z-20 shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+                            <FaLaptopCode size={40} className="text-white" />
+                        </div>
+
+                        {/* Orbit Rings */}
+                        <div className="absolute w-[400px] h-[400px] border border-primary/20 rounded-full animate-spin-slow"></div>
+                        <div className="absolute w-[300px] h-[300px] border border-accent/20 rounded-full animate-reverse-spin"></div>
+
+                        {/* Orbiting Icons */}
+                        <div className="absolute w-full h-full animate-spin-slow">
+                            {orbitingIcons.map((item, index) => {
+                                const angle = (index * 360) / orbitingIcons.length;
+                                const radius = 180; // Distance from center
+                                const rotateStyles = {
+                                    transform: `rotate(${angle}deg) translate(${radius}px) rotate(-${angle}deg)`
+                                };
+
+                                return (
+                                    <div
+                                        key={index}
+                                        className="absolute top-1/2 left-1/2 -ml-6 -mt-6 w-12 h-12 bg-[#030014] border border-[#7042f861] rounded-full flex items-center justify-center hover:scale-125 transition-transform duration-300"
+                                        style={rotateStyles}
+                                    >
+                                        <item.Icon size={24} color={item.color} />
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     )
 }

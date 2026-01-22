@@ -1,112 +1,46 @@
 'use client'
 
-import { FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaHeart } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear()
-
-    const footerLinks = {
-        navigation: [
-            { name: 'Home', href: '#home' },
-            { name: 'About', href: '#about' },
-            { name: 'Skills', href: '#skills' },
-            { name: 'Services', href: '#services' },
-            { name: 'Projects', href: '#projects' },
-            { name: 'Pricing', href: '#pricing' },
-            { name: 'Process', href: '#process' },
-            { name: 'Contact', href: '#contact' },
-        ],
-        social: [
-            { icon: <FaGithub />, url: 'https://github.com/', name: 'GitHub' },
-            { icon: <FaLinkedin />, url: 'https://linkedin.com/', name: 'LinkedIn' },
-            { icon: <FaInstagram />, url: 'https://instagram.com/', name: 'Instagram' },
-            { icon: <FaWhatsapp />, url: 'https://wa.me/918850003494', name: 'WhatsApp' },
-        ],
-    }
-
-    const scrollToSection = (href) => {
-        const element = document.querySelector(href)
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' })
-        }
-    }
-
     return (
-        <footer className="bg-slate-900/80 border-t border-gray-800">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                    {/* Brand */}
-                    <div>
-                        <h3 className="text-2xl font-bold font-display gradient-text mb-4">
-                            CodeWithAtif
-                        </h3>
-                        <p className="text-gray-400 mb-4">
-                            Building scalable mobile apps and backend systems that grow your business.
+        <footer className="w-full text-gray-200 shadow-xl p-[15px] z-50 bg-[#030014] border-t border-[#7042f861]">
+            <div className="w-full flex flex-col items-center justify-center m-auto">
+                <div className="w-full h-full flex flex-row items-center justify-around flex-wrap">
+                    <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
+                        <div className="font-bold text-[16px]">Community</div>
+                        <p className="flex flex-row items-center my-[15px] cursor-pointer">
+                            <FaGithub />
+                            <a href="https://github.com/Atif007cr7" target="_blank" className="text-[15px] ml-[6px]">Github</a>
                         </p>
-                        <p className="text-gray-400 text-sm">
-                            📍 Kurla East, Mumbai 400024
+                        <p className="flex flex-row items-center my-[15px] cursor-pointer">
+                            <FaLinkedin />
+                            <a href="https://www.linkedin.com/in/mohd-ansari-atif-56512a20b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" className="text-[15px] ml-[6px]">LinkedIn</a>
                         </p>
                     </div>
-
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="text-lg font-bold mb-4">Quick Links</h4>
-                        <ul className="space-y-2">
-                            {footerLinks.navigation.map((link, index) => (
-                                <li key={index}>
-                                    <a
-                                        href={link.href}
-                                        onClick={(e) => {
-                                            e.preventDefault()
-                                            scrollToSection(link.href)
-                                        }}
-                                        className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
-                                    >
-                                        {link.name}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
+                    <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
+                        <div className="font-bold text-[16px]">Social Media</div>
+                        <p className="flex flex-row items-center my-[15px] cursor-pointer">
+                            <FaInstagram />
+                            <a href="https://www.instagram.com/ansari_mohd_atif?igsh=MWgwcjJ5MzM1NXpubg%3D%3D&utm_source=qr" target="_blank" className="text-[15px] ml-[6px]">Instagram</a>
+                        </p>
                     </div>
-
-                    {/* Contact & Social */}
-                    <div>
-                        <h4 className="text-lg font-bold mb-4">Get In Touch</h4>
-                        <div className="space-y-2 mb-4">
-                            <p className="text-gray-400 text-sm">
-                                <a href="tel:+918850003494" className="hover:text-primary-400 transition-colors">
-                                    +91 88500 03494
-                                </a>
-                            </p>
-                            <p className="text-gray-400 text-sm">
-                                <a href="mailto:codewithatif@gmail.com" className="hover:text-primary-400 transition-colors">
-                                    codewithatif@gmail.com
-                                </a>
-                            </p>
-                        </div>
-                        <div className="flex gap-4">
-                            {footerLinks.social.map((social, index) => (
-                                <a
-                                    key={index}
-                                    href={social.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-2xl text-gray-400 hover:text-primary-400 transition-colors"
-                                    title={social.name}
-                                >
-                                    {social.icon}
-                                </a>
-                            ))}
-                        </div>
+                    <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
+                        <div className="font-bold text-[16px]">About</div>
+                        <p className="flex flex-row items-center my-[15px] cursor-pointer">
+                            <span className="text-[15px] ml-[6px]">Become Sponsor</span>
+                        </p>
+                        <p className="flex flex-row items-center my-[15px] cursor-pointer">
+                            <span className="text-[15px] ml-[6px]">Learning about me</span>
+                        </p>
+                        <p className="flex flex-row items-center my-[15px] cursor-pointer">
+                            <span className="text-[15px] ml-[6px]">codewithatif@gmail.com</span>
+                        </p>
                     </div>
                 </div>
 
-                {/* Bottom Bar */}
-                <div className="border-t border-gray-800 pt-8 text-center">
-                    <p className="text-gray-400 text-sm">
-                        © {currentYear} CodeWithAtif. All rights reserved. Made with{' '}
-                        <FaHeart className="inline text-red-500" /> by Ansari Mohd Atif
-                    </p>
+                <div className="mb-[20px] text-[15px] text-center">
+                    &copy; Ansari Mohd Atif 2024 Inc. All rights reserved
                 </div>
             </div>
         </footer>
