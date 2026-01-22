@@ -6,108 +6,75 @@ import { FaQuoteLeft, FaStar } from 'react-icons/fa'
 export default function Testimonials() {
     const testimonials = [
         {
-            name: 'Rajesh Kumar',
-            role: 'Startup Founder',
-            company: 'Fashion Tech Startup',
-            content: 'Working with Atif was an absolute pleasure. He delivered our fashion platform app ahead of schedule with exceptional quality. The app is now live on Play Store and our users love the smooth experience. Highly recommended for Flutter development!',
-            rating: 5,
+            name: 'Alex Rivera',
+            role: 'CEO, TechNova',
+            content: 'Working with CodeWithAtif was a game-changer. The ERP system they built reduced our operational overhead by 40%. Highly recommended!',
+            stars: 5,
+            image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Alex'
         },
         {
-            name: 'Sarah Ahmed',
-            role: 'Business Owner',
-            company: 'Service Industry',
-            content: 'We needed a complete overhaul of our existing app and Atif\'s team handled it perfectly. They restructured the entire codebase, improved performance significantly, and added new features. The communication was excellent throughout the project.',
-            rating: 5,
+            name: 'Ravi Kiran',
+            role: 'Founder, Imoda & HRms',
+            content: "The mobile app exceeded our expectations. The UI is fluid, and the backend is rock solid. They truly understand modern app development.",
+            stars: 5,
+            image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ravi'
         },
         {
-            name: 'Mohammed Al-Rashid',
-            role: 'Operations Manager',
-            company: 'Dubai-based Enterprise',
-            content: 'The ERP and POS system developed by Atif has transformed our business operations. The system is robust, scalable, and handles our daily operations seamlessly. The backend architecture is solid and the admin panel is very intuitive. Worth every penny!',
-            rating: 5,
-        },
+            name: 'Jameel Khan',
+            role: 'Product Manager, Barbr',
+            content: 'Incredible attention to detail. The team was responsive and delivered the salon booking platform ahead of schedule.',
+            stars: 5,
+            image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Jameel'
+        }
     ]
 
     return (
-        <section id="testimonials" className="section-padding">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
-                        Client <span className="gradient-text">Testimonials</span>
-                    </h2>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        What our clients say about working with us
+        <section id="testimonials" className="py-20 px-4 md:px-20 relative">
+            <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-16">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-[40px] md:text-[50px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-2"
+                    >
+                        What Clients Say
+                    </motion.h2>
+                    <p className="text-gray-400 text-lg">
+                        Trusted by industry leaders and innovative startups.
                     </p>
-                </motion.div>
+                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {testimonials.map((testimonial, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {testimonials.map((t, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="card hover-glow"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: index * 0.1 }}
+                            className="card p-8 relative"
                         >
-                            {/* Quote Icon */}
-                            <div className="text-4xl text-primary-400 mb-4">
-                                <FaQuoteLeft />
-                            </div>
+                            <FaQuoteLeft className="text-purple-500/20 text-5xl absolute top-6 left-6" />
 
-                            {/* Rating */}
-                            <div className="flex gap-1 mb-4">
-                                {[...Array(testimonial.rating)].map((_, i) => (
-                                    <FaStar key={i} className="text-yellow-400" />
+                            <div className="flex gap-1 mb-6">
+                                {[...Array(t.stars)].map((_, i) => (
+                                    <FaStar key={i} className="text-yellow-500 text-sm" />
                                 ))}
                             </div>
 
-                            {/* Content */}
-                            <p className="text-gray-300 mb-6 leading-relaxed italic">
-                                "{testimonial.content}"
+                            <p className="text-gray-300 italic mb-8 relative z-10 leading-relaxed">
+                                "{t.content}"
                             </p>
 
-                            {/* Author */}
-                            <div className="border-t border-gray-700 pt-4">
-                                <h4 className="font-bold text-lg">{testimonial.name}</h4>
-                                <p className="text-primary-400 text-sm">{testimonial.role}</p>
-                                <p className="text-gray-500 text-sm">{testimonial.company}</p>
+                            <div className="flex items-center gap-4">
+                                <img src={t.image} alt={t.name} className="w-12 h-12 rounded-full border border-purple-500/30" />
+                                <div>
+                                    <h4 className="text-white font-bold">{t.name}</h4>
+                                    <p className="text-gray-500 text-xs">{t.role}</p>
+                                </div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
-
-                {/* Trust Badge */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="mt-16 text-center glass p-8 rounded-2xl"
-                >
-                    <div className="flex flex-wrap justify-center items-center gap-8">
-                        <div>
-                            <div className="text-4xl font-bold gradient-text">100%</div>
-                            <div className="text-gray-400">Client Satisfaction</div>
-                        </div>
-                        <div className="hidden md:block w-px h-12 bg-gray-700"></div>
-                        <div>
-                            <div className="text-4xl font-bold gradient-text">5+</div>
-                            <div className="text-gray-400">Projects Delivered</div>
-                        </div>
-                        <div className="hidden md:block w-px h-12 bg-gray-700"></div>
-                        <div>
-                            <div className="text-4xl font-bold gradient-text">3+</div>
-                            <div className="text-gray-400">Years Experience</div>
-                        </div>
-                    </div>
-                </motion.div>
             </div>
         </section>
     )

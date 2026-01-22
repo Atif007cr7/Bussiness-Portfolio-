@@ -1,9 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { FaGithub, FaLinkedin, FaInstagram, FaBars, FaTimes } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaInstagram, FaBars, FaTimes, FaDownload, FaSun, FaMoon } from 'react-icons/fa'
+import { useTheme } from '@/context/ThemeContext'
 
 export default function Navbar() {
+    const { theme, toggleTheme } = useTheme()
     const [isOpen, setIsOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
 
@@ -16,9 +18,12 @@ export default function Navbar() {
     }, [])
 
     const navItems = [
-        { name: 'About me', href: '#about' },
+        { name: 'About', href: '#home' },
+        { name: 'Team', href: '#team' },
         { name: 'Skills', href: '#skills' },
         { name: 'Projects', href: '#projects' },
+        { name: 'Testimonials', href: '#testimonials' },
+        { name: 'Contact', href: '#contact' },
     ]
 
     const socialLinks = [
@@ -28,7 +33,7 @@ export default function Navbar() {
     ]
 
     return (
-        <nav className="fixed w-full h-[65px] top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-4 md:px-10">
+        <nav className={`fixed w-full h-[65px] top-0 shadow-lg z-50 px-4 md:px-10 transition-all duration-300 ${isScrolled ? 'bg-[#03001417] backdrop-blur-md shadow-[#2A0E61]/50' : 'bg-transparent'}`}>
             <div className="w-full h-full flex flex-row items-center justify-between m-auto">
                 <a href="#home" className="h-auto w-auto flex flex-row items-center">
                     <span className="font-bold ml-[10px] hidden md:block text-gray-300 hover:text-white transition-colors">
@@ -36,13 +41,13 @@ export default function Navbar() {
                     </span>
                 </a>
 
-                <div className="hidden md:flex w-[500px] h-full flex-row items-center justify-between md:mr-20">
-                    <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] mr-[15px] px-[20px] py-[10px] rounded-full text-gray-200">
+                <div className="hidden md:flex w-fit h-full flex-row items-center justify-between md:mr-20">
+                    <div className="flex items-center justify-between w-full h-auto border border-[#7042f861] bg-[#0300145e] px-[20px] py-[10px] rounded-full text-gray-200 gap-8">
                         {navItems.map((item) => (
                             <a
                                 key={item.name}
                                 href={item.href}
-                                className="cursor-pointer hover:text-[#a855f7] transition-colors"
+                                className="cursor-pointer hover:text-[#a855f7] transition-colors whitespace-nowrap"
                             >
                                 {item.name}
                             </a>
@@ -50,7 +55,23 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                <div className="flex flex-row gap-5">
+                <div className="flex flex-row gap-5 items-center">
+                    <button
+                        onClick={toggleTheme}
+                        className="p-2 rounded-full border border-[#7042f861] text-gray-300 hover:text-white hover:bg-[#a855f7]/20 transition-all duration-300"
+                        title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                    >
+                        {theme === 'dark' ? <FaSun size={18} /> : <FaMoon size={18} />}
+                    </button>
+
+                    <a
+                        href="/resume.pdf"
+                        download
+                        className="hidden md:flex items-center gap-2 px-4 py-1.5 border border-[#a855f7] rounded-full text-gray-300 hover:text-white hover:bg-[#a855f7]/20 transition-all duration-300 text-sm font-medium"
+                    >
+                        <FaDownload size={14} />
+                        Resume
+                    </a>
                     {socialLinks.map((link, index) => (
                         <a
                             key={index}
@@ -77,7 +98,7 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden absolute top-[65px] left-0 w-full bg-[#030014] border-b border-[#7042f861] p-4 flex flex-col items-center gap-4">
+                <div className="md:hidden absolute top-[65px] left-0 w-full bg-[var(--bg)] border-b border-[#7042f861] p-4 flex flex-col items-center gap-4 shadow-xl">
                     {navItems.map((item) => (
                         <a
                             key={item.name}

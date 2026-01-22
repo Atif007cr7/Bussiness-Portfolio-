@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import {
     SiFlutter, SiDart, SiPhp, SiLaravel, SiFastapi, SiPython, SiDjango,
     SiReact, SiNextdotjs, SiTailwindcss, SiMysql, SiPostgresql,
-    SiDocker, SiAmazonaws, SiFirebase, SiGit, SiTypeform
+    SiDocker, SiAmazonwebservices, SiFirebase, SiGit, SiTypeform
 } from 'react-icons/si'
 
 export default function Skills() {
@@ -22,7 +22,7 @@ export default function Skills() {
         { Icon: SiFirebase, name: 'Firebase', color: '#FFCA28' },
         { Icon: SiMysql, name: 'MySQL', color: '#4479A1' },
         { Icon: SiDocker, name: 'Docker', color: '#2496ED' },
-        { Icon: SiAmazonaws, name: 'AWS', color: '#FF9900' },
+        { Icon: SiAmazonwebservices, name: 'AWS', color: '#FF9900' },
         { Icon: SiGit, name: 'Git', color: '#F05032' },
     ]
 
@@ -47,7 +47,7 @@ export default function Skills() {
                         whileHover={{ scale: 1.1 }}
                         className="flex flex-col items-center gap-2 group cursor-pointer"
                     >
-                        <div className="w-20 h-20 md:w-24 md:h-24 bg-[#030014]/50 rounded-2xl border border-[#7042f861] flex items-center justify-center group-hover:border-[#00d4ff] transition-all duration-300 shadow-[0_0_15px_rgba(112,66,248,0.2)] group-hover:shadow-[0_0_25px_rgba(0,212,255,0.5)]">
+                        <div className="w-20 h-20 md:w-24 md:h-24 card flex items-center justify-center group-hover:border-[#00d4ff] transition-all duration-300 shadow-[0_0_15px_rgba(112,66,248,0.2)] group-hover:shadow-[0_0_25px_rgba(0,212,255,0.5)]">
                             <skill.Icon size={40} color={skill.color} className="group-hover:drop-shadow-[0_0_10px_rgba(0,212,255,0.8)] transition-all duration-300" />
                         </div>
                         <span className="text-gray-300 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">

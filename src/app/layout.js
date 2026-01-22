@@ -21,14 +21,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <head>
                 <link rel="icon" href="/favicon.ico" />
             </head>
             <body>
                 <ThemeProvider>
                     <div className="stars"></div>
-                    <div className="fixed top-0 left-0 right-0 h-[500px] bg-primary/20 blur-[120px] rounded-[100%] pointer-events-none transform -translate-y-1/2 z-[-1]"></div>
+                    <div className="bg-glow"></div>
                     {children}
                 </ThemeProvider>
             </body>

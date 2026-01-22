@@ -40,24 +40,27 @@ export function ThemeProvider({ children }) {
 
     const applyTheme = (newTheme, accent = accentColor, custom = customColor) => {
         const root = document.documentElement
+        root.classList.remove('light', 'dark')
+        root.classList.add(newTheme)
+
         const accentToUse = custom || (accent?.value || accentColor.value)
         const accentLight = custom || (accent?.light || accentColor.light)
         const accentDark = custom || (accent?.dark || accentColor.dark)
 
         if (newTheme === 'dark') {
-            root.style.setProperty('--bg', '#0B0B0B')
-            root.style.setProperty('--bg-secondary', '#141414')
+            root.style.setProperty('--bg', '#030014')
+            root.style.setProperty('--bg-secondary', '#0f172a')
             root.style.setProperty('--text', '#FFFFFF')
-            root.style.setProperty('--text-secondary', '#A0A0A0')
-            root.style.setProperty('--card', 'rgba(20, 20, 20, 0.8)')
-            root.style.setProperty('--border', 'rgba(128, 128, 128, 0.2)')
+            root.style.setProperty('--text-secondary', '#94a3b8')
+            root.style.setProperty('--card', 'rgba(15, 23, 42, 0.6)')
+            root.style.setProperty('--border', 'rgba(148, 163, 184, 0.1)')
         } else {
-            root.style.setProperty('--bg', '#FFFFFF')
-            root.style.setProperty('--bg-secondary', '#F5F5F5')
-            root.style.setProperty('--text', '#0B0B0B')
-            root.style.setProperty('--text-secondary', '#666666')
+            root.style.setProperty('--bg', '#F8FAFC')
+            root.style.setProperty('--bg-secondary', '#FFFFFF')
+            root.style.setProperty('--text', '#0f172a')
+            root.style.setProperty('--text-secondary', '#64748b')
             root.style.setProperty('--card', 'rgba(255, 255, 255, 0.9)')
-            root.style.setProperty('--border', 'rgba(0, 0, 0, 0.1)')
+            root.style.setProperty('--border', 'rgba(0, 0, 0, 0.05)')
         }
 
         root.style.setProperty('--accent', accentToUse)

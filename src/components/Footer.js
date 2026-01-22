@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 
 export default function Footer() {
     return (
-        <footer className="w-full text-gray-200 shadow-xl p-[15px] z-50 bg-[#030014] border-t border-[#7042f861]">
+        <footer className="w-full shadow-xl p-[15px] z-50 bg-[var(--bg)] text-[var(--text)] border-t border-[#7042f861]">
             <div className="w-full flex flex-col items-center justify-center m-auto">
                 <div className="w-full h-full flex flex-row items-center justify-around flex-wrap">
                     <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">

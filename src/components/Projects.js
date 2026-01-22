@@ -120,59 +120,101 @@ export default function Projects() {
 
     return (
         <section id="projects" className="py-20 flex flex-col items-center justify-center z-50 px-4 md:px-20 relative">
-            <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-10">
-                My Projects
-            </h1>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-center mb-16"
+            >
+                <h1 className="text-[40px] md:text-[80px] font-black text-white py-10 tracking-tighter leading-none">
+                    SELECTED <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">PROJECTS</span>
+                </h1>
+                <p className="text-gray-400 text-lg max-w-2xl mx-auto uppercase tracking-[0.5em] font-bold">
+                    [ 2021 — 2024 ]
+                </p>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl z-50">
-                {projects.map((project, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61]"
-                    >
-                        <div className="relative p-4 z-50 h-full flex flex-col bg-[#0b0b15]/80 backdrop-blur-sm group hover:bg-[#1a1a2e]/90 transition-all duration-300">
-                            {/* Image Container */}
-                            <div className="relative w-full h-48 mb-4 rounded-md overflow-hidden bg-black/50">
-                                <Image
-                                    src={project.image}
-                                    alt={project.name}
-                                    fill
-                                    className="object-contain group-hover:scale-105 transition-transform duration-300"
-                                />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-12 w-full max-w-7xl z-50">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-16 w-full max-w-7xl z-50">
+                    {projects.map((project, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            whileHover={{
+                                y: -15,
+                                transition: { type: "spring", stiffness: 400, damping: 10 }
+                            }}
+                            className="group relative h-[600px] cursor-pointer"
+                            onClick={() => setSelectedProject(project)}
+                        >
+                            {/* Background Index Number */}
+                            <div className="absolute -top-10 -left-6 text-[120px] font-black text-white/[0.03] select-none group-hover:text-purple-500/10 transition-colors duration-500">
+                                {index + 1 < 10 ? `0${index + 1}` : index + 1}
                             </div>
 
-                            <div className="flex-grow">
-                                <h3 className="text-2xl font-bold text-white mb-2">{project.name}</h3>
-                                <p className="text-gray-300 text-sm mb-4 line-clamp-3">
-                                    {project.description}
-                                </p>
+                            {/* Main Container */}
+                            <div className="relative h-full w-full bg-[#030014] rounded-[40px] border border-white/5 group-hover:border-purple-500/50 transition-all duration-500 flex flex-col overflow-hidden shadow-2xl">
 
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.tags.slice(0, 3).map((tag, idx) => (
-                                        <span
-                                            key={idx}
-                                            className="px-2 py-1 text-[10px] uppercase font-bold tracking-wider text-purple-300 border border-purple-500/30 rounded-full bg-purple-500/10"
-                                        >
-                                            {tag}
+                                {/* Decorative Corner */}
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-600/20 to-transparent -translate-y-16 translate-x-16 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+
+                                {/* Image Section */}
+                                <div className="relative w-full h-1/2 overflow-hidden bg-white/[0.02]">
+                                    <motion.div
+                                        className="relative w-full h-full flex items-center justify-center p-12"
+                                        whileHover={{ scale: 1.15, rotate: -2 }}
+                                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    >
+                                        <Image
+                                            src={project.image}
+                                            alt={project.name}
+                                            fill
+                                            className="object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+                                        />
+                                    </motion.div>
+
+                                    {/* Status Chip */}
+                                    <div className="absolute top-6 left-6 px-4 py-1.5 bg-purple-600 rounded-full text-[10px] font-black tracking-widest text-white transform -rotate-2">
+                                        {project.status.toUpperCase()}
+                                    </div>
+                                </div>
+
+                                {/* Content Section */}
+                                <div className="relative flex-grow p-10 flex flex-col">
+                                    <span className="text-[11px] font-bold text-cyan-400 uppercase tracking-[0.4em] mb-4">
+                                        {project.platform} • {project.category}
+                                    </span>
+
+                                    <h3 className="text-5xl font-black text-white mb-6 leading-[0.9] tracking-tighter group-hover:text-purple-400 transition-colors">
+                                        {project.name.split(' ').map((word, i) => (
+                                            <span key={i} className="block">{word}</span>
+                                        ))}
+                                    </h3>
+
+                                    <p className="text-gray-400 text-sm mb-10 line-clamp-2 font-medium leading-relaxed group-hover:text-gray-200 transition-colors">
+                                        {project.description}
+                                    </p>
+
+                                    {/* Aesthetic Explore Link */}
+                                    <div className="mt-auto flex items-center gap-6 group/link">
+                                        <div className="relative w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover/link:bg-white group-hover/link:border-white transition-all duration-300">
+                                            <div className="w-2 h-2 rounded-full bg-white group-hover/link:bg-black transition-colors"></div>
+                                            <div className="absolute inset-0 rounded-full border border-purple-500 scale-150 opacity-0 group-hover/link:scale-100 group-hover/link:opacity-100 transition-all duration-500"></div>
+                                        </div>
+                                        <span className="text-sm font-black uppercase tracking-widest text-white">
+                                            VIEW PROJECT
                                         </span>
-                                    ))}
+                                    </div>
                                 </div>
                             </div>
 
-                            <button
-                                onClick={() => setSelectedProject(project)}
-                                className="w-full py-2 mt-auto rounded-lg bg-gradient-to-r from-purple-800 to-blue-800 text-white font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-[0_0_15px_rgba(112,66,248,0.5)] border border-[#7042f861]"
-                            >
-                                View Details
-                            </button>
-                        </div>
-                    </motion.div>
-                ))}
+                            {/* Outer Glow Effect */}
+                            <div className="absolute -inset-2 bg-gradient-to-r from-purple-600/20 to-cyan-600/20 rounded-[42px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
-
             {/* Project Modal */}
             <AnimatePresence>
                 {selectedProject && (

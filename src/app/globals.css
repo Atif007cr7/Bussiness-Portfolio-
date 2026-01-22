@@ -35,6 +35,34 @@ body {
 
 /* Star Background */
 .stars {
+  transition: opacity 0.5s ease;
+}
+
+.light .stars {
+  opacity: 0;
+}
+
+/* Background Glow */
+.bg-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 500px;
+  background: var(--primary-glow);
+  filter: blur(120px);
+  border-radius: 100%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.light .bg-glow {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
+}
+
+.stars {
   position: fixed;
   top: 0;
   left: 0;
@@ -97,23 +125,23 @@ body {
 
 /* Glass Effect */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--card);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
 }
 
 /* Cards */
 .card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
   backdrop-filter: blur(10px);
   border-radius: 16px;
   transition: all 0.3s ease;
 }
 
 .card:hover {
-  border-color: var(--primary);
+  border-color: var(--primary) !important;
   box-shadow: 0 0 20px var(--primary-glow);
   transform: translateY(-5px);
 }
@@ -128,6 +156,8 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
@@ -137,8 +167,8 @@ body {
 
 .btn-secondary {
   background: transparent;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text);
+  border: 1px solid var(--border);
   padding: 12px 32px;
   border-radius: 50px;
   font-weight: 600;
@@ -147,11 +177,54 @@ body {
 
 .btn-secondary:hover {
   border-color: var(--accent);
-  background: rgba(0, 212, 255, 0.1);
+  background: var(--accent-soft);
   color: var(--accent);
 }
 
 /* Utilities */
 .section-padding {
   padding: 80px 20px;
+}
+
+.light .text-gray-200,
+.light .text-gray-300,
+.light .text-gray-400 {
+  color: #475569 !important;
+}
+
+.light [class*="bg-[#030014]"],
+.light [class*="bg-[#0b0b15]"] {
+  background-color: var(--bg-secondary) !important;
+}
+
+.light [class*="border-[#7042f861]"],
+.light [class*="border-[#2A0E61]"] {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light [class*="shadow-[#2A0E61]"] {
+  box-shadow: none !important;
+}
+
+.light .text-white {
+  color: var(--text) !important;
+}
+
+.light .bg-\[\#0300145e\],
+.light .bg-slate-800 {
+  background-color: var(--bg) !important;
+}
+
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
 }

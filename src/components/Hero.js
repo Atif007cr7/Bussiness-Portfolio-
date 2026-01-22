@@ -32,7 +32,7 @@ export default function Hero() {
                     <motion.div
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="py-[8px] px-[10px] border border-[#7042f88b] opacity-[0.9] rounded-full w-fit bg-[#0300145e]"
+                        className="py-[8px] px-[10px] border border-[#7042f88b] opacity-[0.9] rounded-full w-fit glass"
                     >
                         <h1 className="text-[#b49bff] text-[13px] flex items-center gap-2">
                             <FaCode className="text-secondary" />
@@ -81,8 +81,8 @@ export default function Hero() {
                 <div className="w-full lg:w-1/2 h-full flex justify-center items-center mt-20 lg:mt-0 relative">
                     <div className="relative w-[400px] h-[400px] flex items-center justify-center">
                         {/* Center Icon */}
-                        <div className="absolute w-24 h-24 bg-[#030014] rounded-full border border-primary/50 flex items-center justify-center z-20 shadow-[0_0_30px_rgba(168,85,247,0.5)]">
-                            <FaLaptopCode size={40} className="text-white" />
+                        <div className="absolute w-24 h-24 bg-[var(--bg)] rounded-full border border-primary/50 flex items-center justify-center z-20 shadow-[0_0_30px_rgba(168,85,247,0.5)]">
+                            <FaLaptopCode size={40} className="text-[var(--text)]" />
                         </div>
 
                         {/* Orbit Rings */}
@@ -101,7 +101,7 @@ export default function Hero() {
                                 return (
                                     <div
                                         key={index}
-                                        className="absolute top-1/2 left-1/2 -ml-6 -mt-6 w-12 h-12 bg-[#030014] border border-[#7042f861] rounded-full flex items-center justify-center hover:scale-125 transition-transform duration-300"
+                                        className="absolute top-1/2 left-1/2 -ml-6 -mt-6 w-12 h-12 bg-[var(--bg)] border border-[#7042f861] rounded-full flex items-center justify-center hover:scale-125 transition-transform duration-300"
                                         style={rotateStyles}
                                     >
                                         <item.Icon size={24} color={item.color} />
